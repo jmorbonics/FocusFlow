@@ -12,6 +12,30 @@ body {
   align-items: center;
   padding-top: 56px;
   background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+  position: relative;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure stars are behind content */
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@keyframes twinkling {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
 }
 
 .about-section {
@@ -29,39 +53,39 @@ body {
   background-color: var(--primary-color);
   text-align: center;
   max-width: 800px;
-  width: 100%;
+  width: calc(100% -40px);
 }
 
 h1 {
-  font-size: 4em;
-  color: var(--text-color);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
+    font-size:4em; 
+    color:#e0e0e0; 
+    text-shadow:.2em .2em .4em rgba(0,0,0,.3); 
+    margin-bottom:.5em
 }
 
 h2 {
-  color: var(--text-color);
+    color:#e0e0e0
 }
 
 p,
 li {
-  color: var(--text-color);
-  line-height: 1.6;
+    color:#e0e0e0; 
+    line-height:1 em
 }
 
 ul {
-  list-style-type:none; /* Remove bullet points */
+    list-style-type:none
 }
 
 li::before {
-  content:"•"; 
-  color:#b99de6; /* Light purple bullet point */
+    content:"•"; 
+    color:#b99de6
 }
 
 a {
-  color: #b99de6; /* Light purple link color */
+    color:#b99de6
 }
 
 a:hover {
-  color: #9d83d0; /* Darker light purple hover */
+    color:#9d83d0
 }
