@@ -8,6 +8,16 @@ const Parse = () => {
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const [gazePosition, setGazePosition] = useState({ x: null, y: null });
   const [focusTime, setFocusTime] = useState({ focused: 0, unfocused: 0 })
+
+  useEffect(() => {
+    const startTime = Date.now();
+  
+    return () => {
+      const endTime = Date.now();
+      const timeSpentOnPage = (endTime - startTime) / 1000;
+      localStorage.setItem('timeSpentOnPage1', timeSpentOnPage); // Store the time in localStorage
+    };
+  }, []);
   // initializeWebGazer();
   // The paragraph text to display
   const paragraphText = `In the modern world, technology plays a critical role in shaping the way we communicate, work, and live our lives. Over the past few decades, advancements in computing, mobile devices, and the internet have connected people from all corners of the globe, making the exchange of information instantaneous and accessible. As society becomes increasingly dependent on digital platforms, issues such as cybersecurity, data privacy, and artificial intelligence ethics have become central concerns. The rapid pace of technological innovation has also transformed industries, automating tasks, and revolutionizing fields like healthcare, education, and entertainment. Despite these advances, there are still many challenges to be addressed, including the digital divide that leaves certain populations without access to essential technologies and the environmental impact of electronic waste. As we look to the future, it is crucial to develop sustainable practices that ensure technology continues to benefit society as a whole while mitigating its negative effects. Innovations such as renewable energy, quantum computing, and biotechnology hold promise for addressing global challenges like climate change, disease eradication, and food security. However, with these opportunities come responsibilities, and it is the duty of technologists, policymakers, and individuals alike to ensure that progress is made in an equitable and ethical manner. In doing so, we can create a world where technology serves as a force for good, improving the quality of life for all while preserving the planet for future generations.`;
@@ -166,8 +176,9 @@ const Parse = () => {
 
   return (
     <div>
-      <h1 id="ypdf">Your PDF</h1>
+      <h1 class="ypdf">Your PDF</h1>
       <p id="paragraph"></p>
+      <a href=""></a>
 
       {/* Inputs for X and Y coordinates */}
       {/* <div className="mb-3">

@@ -5,6 +5,9 @@ function CollectData() {
   const [collectingType, setCollectingType] = useState(null); // 'type1', 'type2', or null
   const [data, setData] = useState([]);
 
+  const timeSpent = localStorage.getItem('timeSpentOnPage1');
+
+
   useEffect(() => {
     if (collectingType === 'type1') {
       startCollectingType1();
@@ -47,7 +50,7 @@ function CollectData() {
 
   return (
     <div>
-      <h1>Data Collection Page</h1>
+      <h1 class="ypdf">Data Collection Page</h1>
       <div>
         <button
           onClick={() => {
@@ -75,6 +78,7 @@ function CollectData() {
           ))}
         </ul>
       </div>
+      <h1>{timeSpent}</h1>
     </div>
   );
 }
