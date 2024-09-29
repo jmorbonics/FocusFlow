@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './App.css'; // Make sure you have the CSS for highlighting
 import { initializeWebGazer } from './useWebGazer';
+import { use } from 'marked';
 
 
 const Parse = () => {
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const [gazePosition, setGazePosition] = useState({ x: null, y: null });
+  const [focusTime, setFocusTime] = useState({ focused: 0, unfocused: 0 })
   // initializeWebGazer();
   // The paragraph text to display
   const paragraphText = `In the modern world, technology plays a critical role in shaping the way we communicate, work, and live our lives. Over the past few decades, advancements in computing, mobile devices, and the internet have connected people from all corners of the globe, making the exchange of information instantaneous and accessible. As society becomes increasingly dependent on digital platforms, issues such as cybersecurity, data privacy, and artificial intelligence ethics have become central concerns. The rapid pace of technological innovation has also transformed industries, automating tasks, and revolutionizing fields like healthcare, education, and entertainment. Despite these advances, there are still many challenges to be addressed, including the digital divide that leaves certain populations without access to essential technologies and the environmental impact of electronic waste. As we look to the future, it is crucial to develop sustainable practices that ensure technology continues to benefit society as a whole while mitigating its negative effects. Innovations such as renewable energy, quantum computing, and biotechnology hold promise for addressing global challenges like climate change, disease eradication, and food security. However, with these opportunities come responsibilities, and it is the duty of technologists, policymakers, and individuals alike to ensure that progress is made in an equitable and ethical manner. In doing so, we can create a world where technology serves as a force for good, improving the quality of life for all while preserving the planet for future generations.`;
@@ -89,9 +91,9 @@ const Parse = () => {
     // Now check the current line for the word to highlight
     wordsInLine.forEach((word) => {
       const wordRect = word.getBoundingClientRect();
-      if (x >= wordRect.left && x <= wordRect.right && y >= wordRect.top && y <= wordRect.bottom) {
+      if (x >= wordRect.left-105 && x <= wordRect.right+105 && y >= wordRect.top-105 && y <= wordRect.bottom+105) {
         word.classList.add('highlight'); // Apply highlight style
-        checkAndHighlightInBetween(2);
+        checkAndHighlightInBetween(5);
       }
     });
   };
@@ -164,11 +166,11 @@ const Parse = () => {
 
   return (
     <div>
-      <h1>Big Paragraph typ shi</h1>
+      <h1 id="ypdf">Your PDF</h1>
       <p id="paragraph"></p>
 
       {/* Inputs for X and Y coordinates */}
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label htmlFor="x-coord" className="form-label">X Coordinate:</label>
         <input type="number" id="x-coord" className="form-control" placeholder="Enter X coordinate" />
       </div>
@@ -182,7 +184,7 @@ const Parse = () => {
       </button>
       <button className="btn btn-secondary" onClick={clearHighlight}>
         Clear Bold
-      </button>
+      </button> */}
     </div>
   );
 };
