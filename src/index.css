@@ -2,7 +2,7 @@
   --primary-color: #7a5bba; /* Light purple */
   --secondary-color: #4e2d91; /* Medium purple */
   --accent-color: #2c0c57; /* Dark purple */
-  --text-color: #e0e0e0; /* Soft white for text */
+  --text-color: #000000; /* Soft white for text */
 }
 
 body {

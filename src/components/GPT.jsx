@@ -36,7 +36,7 @@ const GPT = () => {
 
     setIsLoading(true);
     console.log("GPT button was clicked");
-    const response = await axios.post("http://localhost:3005/chatbot", {
+    const response = await axios.post("http://localhost:3005/pdf2txt", {
       question: value,
     });
     const html = await marked.marked(response.data);
