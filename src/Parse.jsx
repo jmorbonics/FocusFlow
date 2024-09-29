@@ -3,32 +3,35 @@
 const Parse = () => {
     return (
       <div className="about-section">
-        <h1>About Us</h1>
-        <p>
-          Welcome to our chatbot benchmarking platform, where we compare the
-          performance of leading Large-Language-Models (LLMs) like Chat-GPT and Llama. This is 
-          where future development will be done on developing interesting new features 
-          related to chatbots. This includes Retrieval-Augmented Generation (RAG) models,
-          multimodal models, in-house data analytics, and more. Head over to the OpenAI page to 
-          check it out!
-        </p>
+        <h1>Parse Page!</h1>
   
-        <h2>Quick Tips</h2>
-        <p>
-          - Make sure to use a VPN like OpenVPN when accessing the website<br></br>
-          - Don't worry if it takes some time to answer your question, the AI is working hard!<br></br>
-          - If it takes too long, try refreshing the page or using the inspect tool to see if there was a 
-          connection issue with the server<br></br>
+        <p id="paragraph">
+            In the modern world, technology plays a critical role in shaping the way we communicate, work, and live our lives. Over the past few decades, advancements in computing, mobile devices, and the internet have connected people from all corners of the globe, making the exchange of information instantaneous and accessible. As society becomes increasingly dependent on digital platforms, issues such as cybersecurity, data privacy, and artificial intelligence ethics have become central concerns. The rapid pace of technological innovation has also transformed industries, automating tasks, and revolutionizing fields like healthcare, education, and entertainment. Despite these advances, there are still many challenges to be addressed, including the digital divide that leaves certain populations without access to essential technologies and the environmental impact of electronic waste. As we look to the future, it is crucial to develop sustainable practices that ensure technology continues to benefit society as a whole while mitigating its negative effects. Innovations such as renewable energy, quantum computing, and biotechnology hold promise for addressing global challenges like climate change, disease eradication, and food security. However, with these opportunities come responsibilities, and it is the duty of technologists, policymakers, and individuals alike to ensure that progress is made in an equitable and ethical manner. In doing so, we can create a world where technology serves as a force for good, improving the quality of life for all while preserving the planet for future generations.
         </p>
-  
-        <h2>Contact</h2>
-        <p>
-          If you have any questions, suggestions, or need further information
-          about our platform, please don't hesitate to reach out. 
-          <br/><br/>
-          Contact: Jack Morby at jmorby@iteris.com
-        </p>
+        {/* <div className="mb-3">
+            <label htmlFor="x-coord" className="form-label">X Coordinate:</label>
+            <input
+            type="number"
+            id="x-coord"
+            className="form-control"
+            placeholder="Enter X coordinate"
+            value={xCoord}
+            onChange={(e) => setXCoord(e.target.value)}
+            />
+        </div>
+        <div className="mb-3">
+            <label htmlFor="y-coord" className="form-label">Y Coordinate:</label>
+            <input
+            type="number"
+            id="y-coord"
+            className="form-control"
+            placeholder="Enter Y coordinate"
+            value={yCoord}
+            onChange={(e) => setYCoord(e.target.value)}
+            />
+        </div> */}
       </div>
+      
     );
   };
   

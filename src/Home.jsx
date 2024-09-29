@@ -1,33 +1,34 @@
-// Parse.jsx
-
 const Home = () => {
   return (
     <div className="about-section">
-      <h1>About Us</h1>
+      <h1>Our Project, FocusFlow</h1>
       <p>
-        Welcome to our chatbot benchmarking platform, where we compare the
-        performance of leading Large-Language-Models (LLMs) like Chat-GPT and Llama. This is 
-        where future development will be done on developing interesting new features 
-        related to chatbots. This includes Retrieval-Augmented Generation (RAG) models,
-        multimodal models, in-house data analytics, and more. Head over to the OpenAI page to 
-        check it out!
+        FocusFlow aims to enhance concentration and comprehension for individuals with trouble with concentration and with ADHD
+        by integrating AI text extraction from PDFs with eye-tracking technology. 
+        The ultimate study/focus application, this tool will highlight text dynamically, giving visual 
+        cues to maintain focus and improve a user reading experience and concentration.
       </p>
-
-      <h2>Quick Tips</h2>
+      <h2>Features</h2>
       <p>
-        - Make sure to use a VPN like OpenVPN when accessing the website<br></br>
-        - Don't worry if it takes some time to answer your question, the AI is working hard!<br></br>
-        - If it takes too long, try refreshing the page or using the inspect tool to see if there was a 
-        connection issue with the server<br></br>
+        - Trained eye tracking AI model remote hosted on the backend by an Intel AI PC<br />
+        - Automatic Machine Learning backed highlighting system detecting missed highlights and autocorrecting features<br />
+        - Custom made games created from using Artificial Intelligence to scrape users gaming history for trends<br />
+        - Backed neural research showing increased attentiveness and focus given patterns of light and short times of stimulus activity
       </p>
 
       <h2>Contact</h2>
       <p>
         If you have any questions, suggestions, or need further information
-        about our platform, please don't hesitate to reach out. 
-        <br/><br/>
-        Contact: Jack Morby at jmorby@iteris.com
-      </p>
+        about our project, please don't hesitate to reach out. 
+        <br /><br />
+        @CS @MechSE @Illinois
+        <br /><br />
+        <span style={{ color: 'blue', fontSize: '40px' }}>I</span>
+        <span style={{ color: 'orange', fontSize: '40px' }}>LL</span> - 
+        <span style={{ color: 'blue', fontSize: '40px' }}>I</span>
+        <span style={{ color: 'orange', fontSize: '40px' }}>N</span>
+        <span style={{ color: 'blue', fontSize: '40px' }}>I</span>
+      </p> 
     </div>
   );
 };
