@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './App.css'; // Make sure you have the CSS for highlighting
 import { initializeWebGazer } from './useWebGazer';
 import { use } from 'marked';
+import * as marked from "marked";
+import axios from "axios";
 import Stars from './components/Stars';
 
 
@@ -9,26 +11,31 @@ const Parse = () => {
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const [gazePosition, setGazePosition] = useState({ x: null, y: null });
   const [focusTime, setFocusTime] = useState({ focused: 0, unfocused: 0 })
+  const [response, setResponse] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [paragraphText, setParagraphText] = useState('');
 
-  useEffect(() => {
-    const startTime = Date.now();
-  
-    return () => {
-      const endTime = Date.now();
-      const timeSpentOnPage = (endTime - startTime) / 1000;
-      localStorage.setItem('timeSpentOnPage1', timeSpentOnPage); // Store the time in localStorage
-    };
-  }, []);
-  // initializeWebGazer();
-  // The paragraph text to display
-  const paragraphText = `In the modern world, technology plays a critical role in shaping the way we communicate, work, and live our lives. Over the past few decades, advancements in computing, mobile devices, and the internet have connected people from all corners of the globe, making the exchange of information instantaneous and accessible. As society becomes increasingly dependent on digital platforms, issues such as cybersecurity, data privacy, and artificial intelligence ethics have become central concerns. The rapid pace of technological innovation has also transformed industries, automating tasks, and revolutionizing fields like healthcare, education, and entertainment. Despite these advances, there are still many challenges to be addressed, including the digital divide that leaves certain populations without access to essential technologies and the environmental impact of electronic waste. As we look to the future, it is crucial to develop sustainable practices that ensure technology continues to benefit society as a whole while mitigating its negative effects. Innovations such as renewable energy, quantum computing, and biotechnology hold promise for addressing global challenges like climate change, disease eradication, and food security. However, with these opportunities come responsibilities, and it is the duty of technologists, policymakers, and individuals alike to ensure that progress is made in an equitable and ethical manner. In doing so, we can create a world where technology serves as a force for good, improving the quality of life for all while preserving the planet for future generations.`;
+  const handleSubmit = async () => {
+    if (isLoading) {
+      return;
+    }
+    setIsLoading(true);
+    console.log("Initializing GPT startup sequence")
 
-  useEffect(() => {
+    console.log("GPT initiated -> sending PDF 2 Txt request");
+    const response = await axios.post("http://localhost:3005/pdf2txt", {
+      question: "Tell me a summary of the uploaded pdf",
+    });
+    const html = await marked.marked(response.data);
+    setResponse(html);
+    setParagraphText(html);
+    // setIsLoading(false);
+    console.log("GPT response received")
+
+    console.log(html)
     const paragraph = document.getElementById('paragraph');
-    const words = paragraphText.split(' '); // Split the paragraph into words
+    const words = html.split(' '); // Split the paragraph into words
     paragraph.innerHTML = ''; // Clear the paragraph content
-
-    // Wrap each word in a span and append to the paragraph
     words.forEach((word, index) => {
       const span = document.createElement('span');
       span.id = `word-${index + 1}`; // Assign a unique ID to each word
@@ -36,7 +43,47 @@ const Parse = () => {
       paragraph.appendChild(span);
     });
 
-  }, []); // This runs only once on mount
+
+
+  };
+
+  useEffect(() => {
+    const startTime = Date.now();
+
+    const fetchData = async () => {
+      console.log("starting fetching data");
+      await handleSubmit();
+      console.log("finished fetching data");
+
+      // const paragraph = document.getElementById('paragraph');
+      // const words = paragraphText.split(' '); // Split the paragraph into words
+      // paragraph.innerHTML = ''; // Clear the paragraph content
+
+      // // Wrap each word in a span and append to the paragraph
+      // words.forEach((word, index) => {
+      //   const span = document.createElement('span');
+      //   span.id = `word-${index + 1}`; // Assign a unique ID to each word
+      //   span.innerHTML = word + ' '; // Add a space after each word
+      //   paragraph.appendChild(span);
+      // });
+    };
+
+    fetchData();
+  
+    return () => {
+      const endTime = Date.now();
+      const timeSpentOnPage = (endTime - startTime) / 1000;
+      localStorage.setItem('timeSpentOnPage1', timeSpentOnPage); // Store the time in localStorage
+    };
+  }, []);
+
+
+
+  // initializeWebGazer();
+  // The paragraph text to display
+  // const paragraphText = `In the modern world, technology plays a critical role in shaping the way we communicate, work, and live our lives. Over the past few decades, advancements in computing, mobile devices, and the internet have connected people from all corners of the globe, making the exchange of information instantaneous and accessible. As society becomes increasingly dependent on digital platforms, issues such as cybersecurity, data privacy, and artificial intelligence ethics have become central concerns. The rapid pace of technological innovation has also transformed industries, automating tasks, and revolutionizing fields like healthcare, education, and entertainment. Despite these advances, there are still many challenges to be addressed, including the digital divide that leaves certain populations without access to essential technologies and the environmental impact of electronic waste. As we look to the future, it is crucial to develop sustainable practices that ensure technology continues to benefit society as a whole while mitigating its negative effects. Innovations such as renewable energy, quantum computing, and biotechnology hold promise for addressing global challenges like climate change, disease eradication, and food security. However, with these opportunities come responsibilities, and it is the duty of technologists, policymakers, and individuals alike to ensure that progress is made in an equitable and ethical manner. In doing so, we can create a world where technology serves as a force for good, improving the quality of life for all while preserving the planet for future generations.`;
+  // const paragraphText = response;
+  // console.log(paragraphText)
 
   useEffect(() => {
     const script = document.createElement('script');

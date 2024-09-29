@@ -30,7 +30,7 @@ function NavbarFlow() {
             <Nav.Link href="parse">Parse</Nav.Link>
             <Nav.Link href="gpt">AI-Helper</Nav.Link>
             <Nav.Link href="mldata">Get Data</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -40,7 +40,7 @@ function NavbarFlow() {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
