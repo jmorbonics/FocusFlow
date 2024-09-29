@@ -1,0 +1,80 @@
+/* Nav.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 150%;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* CustomStyles.css */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 10rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.nav-item {
+  margin-left: 1rem;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+.nav-link:hover {
+  background-color: #e0e0e0;
+  border-radius: 0.25rem;
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+    border: none;
+    background: none;
+    font-size: 1.25rem;
+  }
+
+  .navbar-collapse {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+  }
+
+  .nav-item {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+}
