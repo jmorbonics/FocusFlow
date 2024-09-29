@@ -8,8 +8,8 @@ import './App.css'
 
 import Home from './Home'; // Ensure components are properly imported
 import Parse from './Parse';
-
-
+import Calibrate from './Calibrate';
+import CollectData from './CollectData';
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +17,8 @@ function App() {
         <Route path="/parse" element={<Parse />} />
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+		<Route path="/calibrate" element={<Calibrate />} />
+		<Route path="/mldata" element={<CollectData />} />
       </Routes>
     </BrowserRouter>
   );

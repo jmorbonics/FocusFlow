@@ -8,7 +8,6 @@ const Home = () => {
         The ultimate study/focus application, this tool will highlight text dynamically, giving visual 
         cues to maintain focus and improve a user reading experience and concentration.
       </p>
-
       <h2>Features</h2>
       <p>
         - Trained eye tracking AI model remote hosted on the backend by an Intel AI PC<br />
