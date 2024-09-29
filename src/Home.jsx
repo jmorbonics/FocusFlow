@@ -21,6 +21,14 @@ const Home = () => {
     generateStars();
   }, []);
 
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      console.log("Selected file:", file.name);
+      // Add your file handling logic here
+    }
+  };
+
   return (
     <div className="home-container">
       <div className="stars"></div>
@@ -46,6 +54,16 @@ const Home = () => {
           <br /><br />
           @CS @MechSE @Illinois
         </p> 
+        <input
+          type="file"
+          accept=".pdf"
+          style={{ display: 'none' }}
+          id="fileInput"
+          onChange={handleFileUpload}
+        />
+        <button onClick={() => document.getElementById('fileInput').click()}>
+          Upload PDF
+        </button>
       </div>
     </div>
   );
