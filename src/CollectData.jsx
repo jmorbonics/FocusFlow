@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getFocusedData } from './useWebGazer'; // Assuming you have this function implemented
+import Stars from './components/Stars';
 import './App.css'; // Make sure you have the CSS for highlighting
 
 
@@ -53,6 +54,7 @@ function CollectData() {
 
   return (
     <div>
+      <Stars />
       <h1 class="ypdf">Data Collection Page</h1>
       <h2>{timeSpent} Total seconds spent reading!</h2>
       <h2>{wordsHighlighted} Words Highlighted in Last Session!</h2>

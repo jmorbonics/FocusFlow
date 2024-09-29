@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css'; // Make sure you have the CSS for highlighting
 import { initializeWebGazer } from './useWebGazer';
 import { use } from 'marked';
+import Stars from './components/Stars';
 
 
 const Parse = () => {
@@ -221,6 +222,7 @@ const Parse = () => {
 
   return (
     <div>
+      <Stars /> 
       <h1 class="ypdf">Your PDF</h1>
       <p id="paragraph"></p>
       <a href=""></a>
