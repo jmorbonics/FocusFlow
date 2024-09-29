@@ -9,8 +9,9 @@ function Calibrate() {
 	initializeWebGazer();
   return (
   <div>
-  <Stars /> 
-	<h1>calibrate this shit</h1>
+    <Stars /> 
+    <h1 class="ypdf">Calibration Screen!</h1>
+    <h2>Look and Click at different points across the screen to calibrate our eye tracking system</h2>
   </div>
   )
 }

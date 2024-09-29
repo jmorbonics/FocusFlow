@@ -44,3 +44,15 @@
 .highlight {
   background-color: palevioletred; /* Highlight background color */
 }
+
+#paragraph {
+  font-size: 48px;
+  margin: 30px;
+  line-height: 150%;
+}
+
+.ypdf {
+  margin-top: 200px;
+  margin-bottom: 100px;
+  font-size: 72px;
+}
