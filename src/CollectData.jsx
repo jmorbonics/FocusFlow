@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { getFocusedData } from './useWebGazer'; // Assuming you have this function implemented
 import Stars from './components/Stars';
+import './App.css'; // Make sure you have the CSS for highlighting
+
 
 function CollectData() {
   const [collectingType, setCollectingType] = useState(null); // 'type1', 'type2', or null
   const [data, setData] = useState([]);
 
   const timeSpent = localStorage.getItem('timeSpentOnPage1');
+  const wordsHighlighted = localStorage.getItem('wordsHighlighted');
 
 
   useEffect(() => {
@@ -53,7 +56,9 @@ function CollectData() {
     <div>
       <Stars />
       <h1 class="ypdf">Data Collection Page</h1>
-      <div>
+      <h2>{timeSpent} Total seconds spent reading!</h2>
+      <h2>{wordsHighlighted} Words Highlighted in Last Session!</h2>
+      <div id="buttons">
         <button
           onClick={() => {
             setCollectingType('type1');
@@ -80,7 +85,6 @@ function CollectData() {
           ))}
         </ul>
       </div>
-      <h1>{timeSpent}</h1>
     </div>
   );
 }

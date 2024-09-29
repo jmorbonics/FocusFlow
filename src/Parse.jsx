@@ -71,11 +71,16 @@ const Parse = () => {
     fetchData();
   
     return () => {
-      const endTime = Date.now();
-      const timeSpentOnPage = (endTime - startTime) / 1000;
-      localStorage.setItem('timeSpentOnPage1', timeSpentOnPage); // Store the time in localStorage
+      const endTime = performance.now();
+      const elapsed = (endTime - startTime) / 1000; // Convert to seconds
+      const totalTime = (parseFloat(localStorage.getItem('timeSpentOnPage1')) || 0) + elapsed;
+      localStorage.setItem('timeSpentOnPage1', totalTime.toFixed(2));
+      setTimeSpent(totalTime);
+
+      // Remove visibilitychange event listener
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [startTime]);
 
 
 
@@ -150,7 +155,10 @@ const Parse = () => {
     wordsInLine.forEach((word) => {
       const wordRect = word.getBoundingClientRect();
       if (x >= wordRect.left-105 && x <= wordRect.right+105 && y >= wordRect.top-105 && y <= wordRect.bottom+105) {
-        word.classList.add('highlight'); // Apply highlight style
+        if (!word.classList.contains('highlight')) {
+          word.classList.add('highlight'); // Apply highlight style
+          setWordsHighlighted(wordsHighlighted+1);
+        }
         checkAndHighlightInBetween(5);
       }
     });
@@ -165,7 +173,12 @@ const Parse = () => {
       if (word.classList.contains('highlight')) {
         if (gap > 0) {
           toHighlight.forEach((w) => {
-            w.classList.add('highlight');
+            if (!w.classList.contains('highlight')) {
+              w.classList.add('highlight');
+              setWordsHighlighted(wordsHighlighted+1);
+            }
+            // w.classList.add('highlight');
+            // setWordsHighlighted(wordsHighlighted+1);
           });
         }
         toHighlight = [];
