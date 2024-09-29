@@ -2,18 +2,15 @@
   --primary-color: #7a5bba; /* Light purple */
   --secondary-color: #4e2d91; /* Medium purple */
   --accent-color: #2c0c57; /* Dark purple */
-  --text-color: #000000; /* Soft white for text */
+  --text-color: #e0e0e0; /* Soft white for text */
 }
 
 body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 56px;
+  padding: 0;
   background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
-  position: relative;
-  overflow: hidden;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100vh; /* Ensure full viewport height */
 }
 
 .stars {
@@ -46,18 +43,16 @@ body {
   padding: 40px;
   margin: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(122, 91, 186, 0.5); /* Light purple shadow */
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 30px rgba(122, 91, 186, .5); /* Light purple shadow */
+  transition: transform .3s ease-in-out;
   animation: fadeInUpwards ease-out both;
-  animation-duration: 1s;
-  background-color: var(--primary-color);
-  text-align: center;
-  max-width: 800px;
-  width: calc(100% -40px);
+  animation-duration:.1s; 
+  background-color:#7a5bba; 
+  text-align:center; 
 }
 
 h1 {
-    font-size:4em; 
+    font-size:1 em; 
     color:#e0e0e0; 
     text-shadow:.2em .2em .4em rgba(0,0,0,.3); 
     margin-bottom:.5em
@@ -70,7 +65,7 @@ h2 {
 p,
 li {
     color:#e0e0e0; 
-    line-height:1 em
+    line: height 1px em
 }
 
 ul {
