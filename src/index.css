@@ -1,31 +1,8 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Ensure it stays above other elements */
+  --primary-color: #7a5bba; /* Light purple */
+  --secondary-color: #4e2d91; /* Medium purple */
+  --accent-color: #2c0c57; /* Dark purple */
+  --text-color: #e0e0e0; /* Soft white for text */
 }
 
 body {
@@ -33,56 +10,58 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  place-items: center;
   padding-top: 56px;
-  min-width: 320px;
-  min-height: 100vh;
-  padding: 20px;
-  background-color: #242424; /* Ensure consistency */
-  color: rgba(255, 255, 255, 0.87); /* Ensure text is visible on dark background */
+  background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-
-
-.file-upload-container {
+.about-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  justify-content: center;
+  padding: 40px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(122, 91, 186, 0.5); /* Light purple shadow */
+  transition: transform 0.3s ease-in-out;
+  animation: fadeInUpwards ease-out both;
+  animation-duration: 1s;
+  background-color: var(--primary-color);
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
 }
 
-.file-upload-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #646cff;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+h1 {
+  font-size: 4em;
+  color: var(--text-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
 }
 
-.file-upload-button:hover {
-  background-color: #535bf2;
+h2 {
+  color: var(--text-color);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+p,
+li {
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-.highlight {
-  background-color: palevioletred;
+ul {
+  list-style-type:none; /* Remove bullet points */
+}
+
+li::before {
+  content:"•"; 
+  color:#b99de6; /* Light purple bullet point */
+}
+
+a {
+  color: #b99de6; /* Light purple link color */
+}
+
+a:hover {
+  color: #9d83d0; /* Darker light purple hover */
 }
