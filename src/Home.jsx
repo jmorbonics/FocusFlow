@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
 import focusflowLogo from './assets/focusflowtransparent.png'; // Adjust the import path as needed
 import Stars from "./components/Stars.jsx";
+import React, { useState, useEffect } from 'react';
 
 
 const Home = () => {
+  const [message, setMessage] = useState('');
 
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
@@ -22,6 +23,7 @@ const Home = () => {
 
         if (response.ok) {
           console.log('File uploaded successfully');
+          setMessage('File uploaded successfully! Head over to calibrate to get started. After calibration, go to Parse to begin studying!');
         } else {
           console.error('File upload failed');
         }
@@ -68,6 +70,7 @@ const Home = () => {
         <button className="file-button" onClick={() => document.getElementById('fileInput').click()}>
           Upload PDF
         </button>
+        {message && <div className="message">{message}</div>}
       </div>
     </div>
   );

@@ -10,8 +10,11 @@ body {
   padding: 0;
   padding-top: 100px;
   background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+  background-attachment: fixed;
   overflow-y: auto; /* Enable vertical scrolling */
-  height: 100vh; /* Ensure full viewport height */
+  overflow-x: hidden;
+  /* height: 100%;   */
+  /* height: 1000vh; */
 }
 
 .stars {
