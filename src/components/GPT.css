@@ -1,0 +1,111 @@
+.gpt-input {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 0.15em solid #ccc;
+    border-radius: 0.25em;
+    font-size: 1.2em;
+}
+
+.gpt-textarea {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 0.15em solid #ccc;
+    border-radius: 0.25em;
+    font-size: 1.2em;
+    resize: vertical;
+    overflow: auto;
+}
+
+th {
+    padding: 3em;
+}
+
+a {
+    text-decoration: none;
+    color: #1b5caa;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1em;
+    background-color: #1b5caa;
+    color: #fff;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 1.2em;
+    box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.1);
+}
+
+
+
+.submitButton:disabled {
+    background-color: #164a7b;
+    /* Slightly darker shade for a pressed effect */
+    box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.1);
+    opacity: 0.90;
+}
+
+button:hover {
+    background-color: #1b5caa;
+}
+
+.gpt-p {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #ffffff;
+    border-radius: 0.25em;
+    font-size: 1.2em;
+    box-shadow: 0 1em 0.25em rgba(0, 0, 0, 0.1);
+    color: #000000; /* Add this line to make the text black */
+}
+
+.output-div {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #ffffff;
+    border-radius: 0.25em;
+    font-size: 1.2em;
+    box-shadow: 0 1em 0.25em rgba(0, 0, 0, 0.1);
+    color: #000000; /* Add this line to make the text black */
+}
+
+.gpt-container {
+    max-width: 85em;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 5em;
+    padding: 2em;
+    border-radius: 0.5em;
+    background-color: #f5f5f5;
+}
+
+.interface-container {
+    max-width: 80em;
+    margin: auto;
+    padding: 2em;
+    border-radius: 0.5em;
+    background-color: #f5f5f5;
+}
+
+.textbox {
+    border-radius: 0.5em;
+    background-color: #f5f5f5;
+}
+
+
+
+.half-width-image {
+    width: 40vw;
+    display: block;
+    margin: auto;
+}
+
+.full-width-image {
+    width: 80vw;
+    display: block;
+    margin: auto;
+}
