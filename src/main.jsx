@@ -2,6 +2,7 @@ import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import * as pdfjsLib from 'pdfjs-dist/webpack'; // Import pdf.js
 import App from './App.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Added missing imports
 import NavbarFlow from './Nav';
 import './index.css';
 
