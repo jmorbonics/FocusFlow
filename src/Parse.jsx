@@ -7,17 +7,54 @@ import { use } from 'marked';
 const Parse = () => {
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const [gazePosition, setGazePosition] = useState({ x: null, y: null });
-  const [focusTime, setFocusTime] = useState({ focused: 0, unfocused: 0 })
+  const [startTime, setStartTime] = useState(0);
+  const [timeSpent, setTimeSpent] = useState(0);
+  const [wordsHighlighted, setWordsHighlighted] = useState(0);
+
+  // if (localStorage.getItem('wordsHighlighted')) {
+  //   setWordsHighlighted(localStorage.getItem('wordsHighlighted'));
+  // }
 
   useEffect(() => {
-    const startTime = Date.now();
-  
     return () => {
-      const endTime = Date.now();
-      const timeSpentOnPage = (endTime - startTime) / 1000;
-      localStorage.setItem('timeSpentOnPage1', timeSpentOnPage); // Store the time in localStorage
+      localStorage.setItem('wordsHighlighted', wordsHighlighted); // Store the time in localStorage
+      setWordsHighlighted(wordsHighlighted);
     };
-  }, []);
+  }, [wordsHighlighted]);  
+
+
+  useEffect(() => {
+    // Function to handle visibility change (for tab switching)
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        setStartTime(performance.now());
+      } else if (document.visibilityState === 'hidden') {
+        const currentTime = performance.now();
+        const elapsed = (currentTime - startTime) / 1000; // Convert to seconds
+        const totalTime = (parseFloat(localStorage.getItem('timeSpentOnPage1')) || 0) + elapsed;
+        localStorage.setItem('timeSpentOnPage1', totalTime.toFixed(2)); // Store the updated total time in seconds
+        setTimeSpent(totalTime); // Update state with new total
+      }
+    };
+
+    // Initialize start time when the component is mounted
+    setStartTime(performance.now());
+
+    // Event listener for tab visibility change
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Cleanup: Store the total time spent when the component unmounts
+    return () => {
+      const endTime = performance.now();
+      const elapsed = (endTime - startTime) / 1000; // Convert to seconds
+      const totalTime = (parseFloat(localStorage.getItem('timeSpentOnPage1')) || 0) + elapsed;
+      localStorage.setItem('timeSpentOnPage1', totalTime.toFixed(2));
+      setTimeSpent(totalTime);
+
+      // Remove visibilitychange event listener
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [startTime]);
   // initializeWebGazer();
   // The paragraph text to display
   const paragraphText = `In the modern world, technology plays a critical role in shaping the way we communicate, work, and live our lives. Over the past few decades, advancements in computing, mobile devices, and the internet have connected people from all corners of the globe, making the exchange of information instantaneous and accessible. As society becomes increasingly dependent on digital platforms, issues such as cybersecurity, data privacy, and artificial intelligence ethics have become central concerns. The rapid pace of technological innovation has also transformed industries, automating tasks, and revolutionizing fields like healthcare, education, and entertainment. Despite these advances, there are still many challenges to be addressed, including the digital divide that leaves certain populations without access to essential technologies and the environmental impact of electronic waste. As we look to the future, it is crucial to develop sustainable practices that ensure technology continues to benefit society as a whole while mitigating its negative effects. Innovations such as renewable energy, quantum computing, and biotechnology hold promise for addressing global challenges like climate change, disease eradication, and food security. However, with these opportunities come responsibilities, and it is the duty of technologists, policymakers, and individuals alike to ensure that progress is made in an equitable and ethical manner. In doing so, we can create a world where technology serves as a force for good, improving the quality of life for all while preserving the planet for future generations.`;
@@ -102,7 +139,10 @@ const Parse = () => {
     wordsInLine.forEach((word) => {
       const wordRect = word.getBoundingClientRect();
       if (x >= wordRect.left-105 && x <= wordRect.right+105 && y >= wordRect.top-105 && y <= wordRect.bottom+105) {
-        word.classList.add('highlight'); // Apply highlight style
+        if (!word.classList.contains('highlight')) {
+          word.classList.add('highlight'); // Apply highlight style
+          setWordsHighlighted(wordsHighlighted+1);
+        }
         checkAndHighlightInBetween(5);
       }
     });
@@ -117,7 +157,12 @@ const Parse = () => {
       if (word.classList.contains('highlight')) {
         if (gap > 0) {
           toHighlight.forEach((w) => {
-            w.classList.add('highlight');
+            if (!w.classList.contains('highlight')) {
+              w.classList.add('highlight');
+              setWordsHighlighted(wordsHighlighted+1);
+            }
+            // w.classList.add('highlight');
+            // setWordsHighlighted(wordsHighlighted+1);
           });
         }
         toHighlight = [];
