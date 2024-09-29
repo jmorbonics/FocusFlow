@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 
 const NavBar = () => {
-  const [isGamesEnabled, setIsGamesEnabled] = useState(true);
+  const [isGamesEnabled, setIsGamesEnabled] = useState(false);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
