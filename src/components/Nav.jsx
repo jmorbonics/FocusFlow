@@ -6,12 +6,22 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Nav.css';
+import focusflowLogo from '../assets/focusflowtransparent.png'; // Adjust the import path as needed
 
 function NavbarFlow() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="home">FocusFlow</Navbar.Brand>
+      <Navbar.Brand href="home">
+          <img
+            src={focusflowLogo}
+            alt="FocusFlow Logo"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{' '}
+          FocusFlow
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

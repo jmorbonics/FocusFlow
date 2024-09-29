@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import focusflowLogo from './assets/focusflowtransparent.png'; // Adjust the import path as needed
 
 const generateStars = () => {
   const starContainer = document.querySelector('.stars');
@@ -25,6 +26,7 @@ const Home = () => {
     <div className="home-container">
       <div className="stars"></div>
       <div className="about-section">
+        <img src={focusflowLogo} alt="FocusFlow Logo" width="200" height="200" />
         <h1>Our Project, FocusFlow</h1>
         <p>
           FocusFlow aims to enhance concentration and comprehension for individuals with trouble concentrating and ADHD
