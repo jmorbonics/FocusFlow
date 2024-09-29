@@ -9,8 +9,7 @@ import { OpenAI } from "openai";
 const app = express();
 const port = process.env.PORT || 3005;
 // const apiKey = process.env.OPEN_AI_KEY;   // can add api key to .env file instead
-// const apiKey = "sk-proj-EyczAoRe1isIn5MjdKpAT3BlbkFJza3ab4Jc3stady8IjgIH";
-const apiKey = "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";
+const apiKey = "";
 const openai = new OpenAI({ apiKey: apiKey });
 
 
