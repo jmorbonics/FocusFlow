@@ -36,3 +36,7 @@ model = LSTMRegressor(input_size, hidden_size, num_layers, output_size)
 
 # Print the model architecture
 print(model)
+
+# model.train()
+# output = model([400, 500])
+# print(output)
