@@ -285,6 +285,7 @@ const Parse = () => {
       <h1 class="ypdf">Your PDF</h1>
       <p id="paragraph"></p>
       <a href=""></a>
+	  {(gazePosition.x < 100 || gazePosition.x > 1200 || gazePosition.y < 100 || gazePosition.y > 500) && <div className="glow-screen"></div>}
 
       {/* Inputs for X and Y coordinates */}
       {/* <div className="mb-3">
