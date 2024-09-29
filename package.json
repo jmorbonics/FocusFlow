@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "pdf-lib": "^1.17.1",
+    "pdfjs": "^2.5.3",
     "pdfjs-dist": "^4.6.82",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
