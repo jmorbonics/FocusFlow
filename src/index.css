@@ -27,15 +27,17 @@ body {
 
 .star {
   position: absolute;
-  width: 2px;
-  height: 2px;
   background-color: white;
   border-radius: 50%;
+  width: 2px;
+  height: 2px;
+  animation: twinkling 2s infinite ease-in-out;
 }
 
 @keyframes twinkling {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
 
 .about-section {
