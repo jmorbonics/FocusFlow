@@ -69,6 +69,7 @@ function Root() {
     return (
         <StrictMode>
             <NavbarFlow />
+            {/* <Game /> */}
             <App />
         </StrictMode>
     );

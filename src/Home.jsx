@@ -1,3 +1,11 @@
+import { useState } from "react";
+// import { pdfjs } from 'pdfjs-dist/build/pdf'
+// import * as PDFJS from "pdfjs-dist/build/pdf";
+// import * as pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
+
+// window.PDFJS = PDFJS;
+
+
 const Home = () => {
   return (
     <div className="about-section">
