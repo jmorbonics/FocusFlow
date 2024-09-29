@@ -17,6 +17,7 @@
     "marked": "^14.1.2",
     "openai": "^4.65.0",
     "pdf-lib": "^1.17.1",
+    "pdfjs": "^2.5.3",
     "pdfjs-dist": "^4.6.82",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
