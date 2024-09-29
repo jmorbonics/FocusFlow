@@ -3,7 +3,7 @@ import { useState } from "react";
 // import * as PDFJS from "pdfjs-dist/build/pdf";
 // import * as pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
 
-window.PDFJS = PDFJS;
+// window.PDFJS = PDFJS;
 
 
 const Home = () => {
