@@ -3,15 +3,7 @@
 const Home = () => {
   return (
     <div className="about-section">
-      <h1>About Us</h1>
-      <p>
-        Welcome to our chatbot benchmarking platform, where we compare the
-        performance of leading Large-Language-Models (LLMs) like Chat-GPT and Llama. This is 
-        where future development will be done on developing interesting new features 
-        related to chatbots. This includes Retrieval-Augmented Generation (RAG) models,
-        multimodal models, in-house data analytics, and more. Head over to the OpenAI page to 
-        check it out!
-      </p>
+      <h1>Home Page!</h1>
 
       <h2>Quick Tips</h2>
       <p>
