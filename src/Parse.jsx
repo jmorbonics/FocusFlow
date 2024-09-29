@@ -11,9 +11,25 @@ const Parse = () => {
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const [gazePosition, setGazePosition] = useState({ x: null, y: null });
   const [focusTime, setFocusTime] = useState({ focused: 0, unfocused: 0 })
+  const [startTime, setStartTime] = useState(0);
+  const [timeSpent, setTimeSpent] = useState(0);
   const [response, setResponse] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [paragraphText, setParagraphText] = useState('');
+  const [wordsHighlighted, setWordsHighlighted] = useState(0);
+
+  const handleVisibilityChange = () => {
+    if (document.visibilityState === 'visible') {
+      setStartTime(performance.now());
+    } else if (document.visibilityState === 'hidden') {
+      const currentTime = performance.now();
+      const elapsed = (currentTime - startTime) / 1000; // Convert to seconds
+      const totalTime = (parseFloat(localStorage.getItem('timeSpentOnPage1')) || 0) + elapsed;
+      localStorage.setItem('timeSpentOnPage1', totalTime.toFixed(2)); // Store the updated total time in seconds
+      setTimeSpent(totalTime); // Update state with new total
+    }
+  };
+
 
   const handleSubmit = async () => {
     if (isLoading) {
@@ -48,7 +64,35 @@ const Parse = () => {
   };
 
   useEffect(() => {
-    const startTime = Date.now();
+    return () => {
+      localStorage.setItem('wordsHighlighted', wordsHighlighted); // Store the time in localStorage
+      setWordsHighlighted(wordsHighlighted);
+    };
+  }, [wordsHighlighted]);  
+
+
+  useEffect(() => {
+    // Function to handle visibility change (for tab switching)
+    setStartTime(performance.now());
+
+    // Event listener for tab visibility change
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Cleanup: Store the total time spent when the component unmounts
+    return () => {
+      const endTime = performance.now();
+      const elapsed = (endTime - startTime) / 1000; // Convert to seconds
+      const totalTime = (parseFloat(localStorage.getItem('timeSpentOnPage1')) || 0) + elapsed;
+      localStorage.setItem('timeSpentOnPage1', totalTime.toFixed(2));
+      setTimeSpent(totalTime);
+
+      // Remove visibilitychange event listener
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [startTime]);
+
+  useEffect(() => {
+    // const startTime = Date.now();
 
     const fetchData = async () => {
       console.log("starting fetching data");
