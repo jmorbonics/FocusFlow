@@ -1,6 +1,10 @@
 const Home = () => {
   return (
     <div className="about-section">
+      <h1>                 </h1>
+      <p>
+          ________________________________                                                                                             
+      </p>
       <h1>Our Project, FocusFlow</h1>
       <p>
         FocusFlow aims to enhance concentration and comprehension for individuals with trouble with concentration and with ADHD
@@ -23,11 +27,17 @@ const Home = () => {
         <br /><br />
         @CS @MechSE @Illinois
         <br /><br />
-        <span style={{ color: 'blue', fontSize: '40px' }}>I</span>
-        <span style={{ color: 'orange', fontSize: '40px' }}>LL</span> - 
-        <span style={{ color: 'blue', fontSize: '40px' }}>I</span>
-        <span style={{ color: 'orange', fontSize: '40px' }}>N</span>
-        <span style={{ color: 'blue', fontSize: '40px' }}>I</span>
+        <span style={{ color: 'blue', fontSize: '40px' }}>M</span>
+        <span style={{ color: 'yellow', fontSize: '40px' }}>H</span>
+        <span style={{ color: 'blue', fontSize: '40px' }}>A</span>
+        <span style={{ color: 'yellow', fontSize: '40px' }}>C</span>
+        <span style={{ color: 'blue', fontSize: '40px' }}>K</span>
+        <span style={{ color: 'yellow', fontSize: '40px' }}>S</span>
+        <span style={{ color: 'blue', fontSize: '40px' }}>-</span>
+        <span style={{ color: 'yellow', fontSize: '40px' }}>2</span>
+        <span style={{ color: 'blue', fontSize: '40px' }}>0</span>
+        <span style={{ color: 'yellow', fontSize: '40px' }}>2</span>
+        <span style={{ color: 'blue', fontSize: '40px' }}>4</span>
       </p> 
     </div>
   );
