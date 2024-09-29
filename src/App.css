@@ -61,3 +61,28 @@
   margin: 35px;
   border-radius: 10px;
 }
+
+
+@keyframes redGlow {
+	0% {
+	  background-color: rgba(255, 0, 0, 0); 
+	  box-shadow: 0 0 0px rgba(255, 0, 0, 0.7); 
+	}
+	50% {
+	  background-color: rgba(255, 0, 0, 0.5); 
+	  box-shadow: 0 0 50px rgba(255, 0, 0, 0.7); 
+	}
+	100% {
+	  background-color: rgba(255, 0, 0, 0); 
+	  box-shadow: 0 0 0px rgba(255, 0, 0, 0.7); 
+	}
+  }
+  
+  .glow-screen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9999; 
+	animation: redGlow 2s infinite; 
