@@ -66,11 +66,11 @@ button:hover {
 .output-div {
     margin-top: 1em;
     padding: 1em;
-    background-color: #ffffff;
+    background-color: #a46fb4;
     border-radius: 0.25em;
     font-size: 1.2em;
     box-shadow: 0 1em 0.25em rgba(0, 0, 0, 0.1);
-    color: #000000; /* Add this line to make the text black */
+    color: #9b1dcd; /* Add this line to make the text black */
 }
 
 .gpt-container {
