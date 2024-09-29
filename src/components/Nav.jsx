@@ -26,9 +26,9 @@ function NavbarFlow() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="home">Home</Nav.Link>
-            <Nav.Link href="parse">Parse</Nav.Link>
-            <Nav.Link href="gpt">GPT</Nav.Link>
             <Nav.Link href="calibrate">Calibrate</Nav.Link>
+            <Nav.Link href="parse">Parse</Nav.Link>
+            <Nav.Link href="gpt">AI-Helper</Nav.Link>
             <Nav.Link href="mldata">Get Data</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

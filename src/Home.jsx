@@ -1,38 +1,39 @@
 import React, { useEffect } from "react";
 import focusflowLogo from './assets/focusflowtransparent.png'; // Adjust the import path as needed
+import Stars from "./components/Stars.jsx";
 
-const generateStars = () => {
-  const starContainer = document.querySelector('.stars');
-  
-  for (let i = 0; i < 100; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    
-    // Random position and animation delay
-    star.style.top = `${Math.random() * 100}vh`;
-    star.style.left = `${Math.random() * 100}vw`;
-    star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-    star.style.animation = `twinkling ${Math.random() * 3 + 2}s infinite ease-in-out`;
-    
-    starContainer.appendChild(star);
-  }
-};
 
 const Home = () => {
-  useEffect(() => {
-    generateStars();
-  }, []);
 
-  const handleFileUpload = (event) => {
+  const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     if (file) {
       console.log("Selected file:", file.name);
-      // Add your file handling logic here
+      // Create a FormData object to send the file
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        console.log("uploading file")
+        const response = await fetch('http://localhost:3005/upload', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          console.log('File uploaded successfully');
+        } else {
+          console.error('File upload failed');
+        }
+      } catch (error) {
+        console.error('Error uploading file:', error);
+      }
     }
   };
 
   return (
     <div className="home-container">
+      <Stars /> 
       <div className="stars"></div>
       <div className="about-section">
         <img src={focusflowLogo} alt="FocusFlow Logo" width="200" height="200" />
@@ -64,7 +65,7 @@ const Home = () => {
           id="fileInput"
           onChange={handleFileUpload}
         />
-        <button onClick={() => document.getElementById('fileInput').click()}>
+        <button className="file-button" onClick={() => document.getElementById('fileInput').click()}>
           Upload PDF
         </button>
       </div>

@@ -8,6 +8,7 @@
 body {
   margin: 0;
   padding: 0;
+  padding-top: 100px;
   background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
   overflow-y: auto; /* Enable vertical scrolling */
   height: 100vh; /* Ensure full viewport height */
@@ -22,19 +23,18 @@ body {
   z-index: -1; /* Ensure stars are behind content */
 }
 
-.star {
-  position: absolute;
-  background-color: white;
-  border-radius: 50%;
-  width: 2px;
-  height: 2px;
-  animation: twinkling 2s infinite ease-in-out;
-}
-
-@keyframes twinkling {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.5; }
+.file-button {
+  background-color: #4e2d91; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 15px 32px; /* Some padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make the button inline-block */
+  font-size: 16px; /* Increase font size */
+  margin: 4px 2px; /* Some margin */
+  cursor: pointer; /* Pointer/hand icon */
+  border-radius: 8px; /* Rounded corners */
 }
 
 .about-section {

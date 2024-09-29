@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getFocusedData } from './useWebGazer'; // Assuming you have this function implemented
+import Stars from './components/Stars';
 
 function CollectData() {
   const [collectingType, setCollectingType] = useState(null); // 'type1', 'type2', or null
@@ -47,6 +48,7 @@ function CollectData() {
 
   return (
     <div>
+      <Stars />
       <h1>Data Collection Page</h1>
       <div>
         <button

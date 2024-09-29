@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css'; // Make sure you have the CSS for highlighting
 import { initializeWebGazer } from './useWebGazer';
+import Stars from './components/Stars';
 
 
 const Parse = () => {
@@ -125,6 +126,7 @@ const Parse = () => {
 
   return (
     <div>
+      <Stars /> 
       <h1>Big Paragraph typ shi</h1>
       <p id="paragraph"></p>
 

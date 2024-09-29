@@ -7,6 +7,7 @@ import * as marked from "marked";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "./GPT.css";
+import Stars from "./Stars.jsx";
 // import pinimg from "../assets/favicon.ico";
 
 const GPT = () => {
@@ -45,7 +46,7 @@ const GPT = () => {
   };
 
   return (
-    <div>
+    <div><Stars /> 
       <br/><br/><br/><br/><br/>
       <div className="gpt-container">
         <div>
