@@ -5,6 +5,7 @@ import App from './App.jsx';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Added missing imports
 import NavbarFlow from './components/Nav';
 import './index.css';
+import Game from './components/Game.jsx';
 
 // Function to retrieve text from a specific page within a PDF Document
 function getPageText(pageNum, PDFDocumentInstance) {
